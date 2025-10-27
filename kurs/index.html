@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления заявками - ИНПРОКОМ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><img src="images/logo.svg" alt="ИНПРОКОМ"></a>
+                </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">Главная</a>
+                <a href="create-request.html" class="nav-item">Создать заявку</a>
+                <a href="profile.html" class="nav-item">Личный кабинет</a>
+                <a href="admin-panel.html" class="nav-item">Панель управления</a>
+                <a href="catalog.html" class="nav-item">Каталог материалов</a>
+            </div>
+            <div class="nav-profile">
+                <span class="profile-name">Иванов И.И.</span>
+                <a href="login.html" class="logout-btn">Выход</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Система управления заявками</h1>
+        
+        <div class="quick-actions">
+            <a href="create-request.html" class="btn btn-primary btn-large">
+                Создать заявку
+            </a>
+        </div>
+
+        <div class="recent-requests">
+            <h2>Последние заявки</h2>
+            
+            <div class="filters">
+                <input type="text" placeholder="Поиск по наименованию материала">
+                <select>
+                    <option value="">Все статусы</option>
+                    <option value="pending">В обработке</option>
+                    <option value="approved">Согласована</option>
+                    <option value="rejected">Отклонена</option>
+                    <option value="confirmed">Подтверждена</option>
+                </select>
+                <input type="date">
+                <button class="btn btn-secondary">Применить фильтры</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование материала</th>
+                            <th>Статус</th>
+                            <th>Дата подачи</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Бумага офисная А4</td>
+                            <td><span class="status status-pending">В обработке</span></td>
+                            <td>18.10.2025 14:30</td>
+                        </tr>
+                        <tr>
+                            <td>Ручка шариковая синяя</td>
+                            <td><span class="status status-approved">Согласована</span></td>
+                            <td>17.10.2025 09:15</td>
+                        </tr>
+                        <tr>
+                            <td>Папка-файл</td>
+                            <td><span class="status status-confirmed">Подтверждена</span></td>
+                            <td>16.10.2025 16:45</td>
+                        </tr>
+                        <tr>
+                            <td>Скобы для степлера</td>
+                            <td><span class="status status-rejected">Отклонена</span></td>
+                            <td>15.10.2025 11:20</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button disabled>Предыдущая</button>
+                <span>Страница 1 из 1</span>
+                <button disabled>Следующая</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
