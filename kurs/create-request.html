@@ -16,35 +16,26 @@
                 <a href="index.html" class="nav-item">Главная</a>
                 <a href="create-request.html" class="nav-item active">Создать заявку</a>
                 <a href="profile.html" class="nav-item">Личный кабинет</a>
-                <a href="admin-panel.html" class="nav-item">Панель управления</a>
+                <a href="admin-panel.html" class="nav-item" id="purchasingPanelBtn" style="display: none;">Панель управления</a>
                 <a href="catalog.html" class="nav-item">Каталог материалов</a>
+                <a href="admin.html" class="nav-item" id="adminPanelBtn" style="display: none;">Админ панель</a>
             </div>
             <div class="nav-profile">
-                <span class="profile-name">Иванов И.И.</span>
-                <a href="login.html" class="logout-btn">Выход</a>
+                <span class="profile-name" id="userName">Пользователь</span>
+                <a href="#" onclick="logout(); return false;" class="logout-btn">Выход</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div id="mainContent" class="container">
         <h1>Создание заявки</h1>
         
-        <form class="request-form">
+        <form id="createRequestForm" class="request-form">
             <div class="form-group">
                 <label for="materialSelect">Выберите материал из каталога:</label>
-                <select id="materialSelect" name="material">
+                <select id="materialSelect" name="material" required>
                     <option value="">Выберите материал</option>
-                    <option value="1">Бумага офисная А4</option>
-                    <option value="2">Ручка шариковая синяя</option>
-                    <option value="3">Папка-файл</option>
-                    <option value="4">Скобы для степлера</option>
-                    <option value="5">Тонер для принтера</option>
                 </select>
-            </div>
-
-            <div class="form-group">
-                <label for="materialName">Или введите новый материал:</label>
-                <input type="text" id="materialName" name="materialName" placeholder="Наименование материала">
             </div>
 
             <div class="form-group">
@@ -63,7 +54,13 @@
                     <option value="м³">м³</option>
                     <option value="л">л</option>
                     <option value="т">т</option>
+                    <option value="пачка">пачка</option>
+                    <option value="коробка">коробка</option>
+                    <option value="картридж">картридж</option>
                 </select>
+                <small style="color: #666; font-size: 0.9rem; display: block; margin-top: 0.25rem;">
+                    Единица измерения будет автоматически установлена при выборе материала
+                </small>
             </div>
 
             <div class="form-group">
@@ -83,5 +80,10 @@
             <button type="submit" class="btn btn-primary">Отправить на согласование</button>
         </form>
     </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/requests.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

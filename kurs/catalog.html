@@ -16,23 +16,24 @@
                 <a href="index.html" class="nav-item">Главная</a>
                 <a href="create-request.html" class="nav-item">Создать заявку</a>
                 <a href="profile.html" class="nav-item">Личный кабинет</a>
-                <a href="admin-panel.html" class="nav-item">Панель управления</a>
+                <a href="admin-panel.html" class="nav-item" id="purchasingPanelBtn" style="display: none;">Панель управления</a>
                 <a href="catalog.html" class="nav-item active">Каталог материалов</a>
+                <a href="admin.html" class="nav-item" id="adminPanelBtn" style="display: none;">Админ панель</a>
             </div>
             <div class="nav-profile">
-                <span class="profile-name">Иванов И.И.</span>
-                <a href="login.html" class="logout-btn">Выход</a>
+                <span class="profile-name" id="userName">Пользователь</span>
+                <a href="#" onclick="logout(); return false;" class="logout-btn">Выход</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div id="mainContent" class="container">
         <h1>Каталог материалов</h1>
         
         <div class="catalog-content">
-            <div class="catalog-filters">
-                <input type="text" placeholder="Поиск по наименованию материала">
-                <button class="btn btn-secondary">Поиск</button>
+            <div class="filters">
+                <input type="text" id="catalogSearchInput" placeholder="Поиск по наименованию материала">
+                <button class="btn btn-secondary" onclick="applyCatalogFilters()">Применить фильтры</button>
             </div>
 
             <div class="table-container">
@@ -45,47 +46,22 @@
                             <th>Единица измерения</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Бумага офисная А4</td>
-                            <td>Белая, 80г/м², 500 листов</td>
-                            <td>пачка</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Ручка шариковая синяя</td>
-                            <td>Пластиковый корпус, синие чернила</td>
-                            <td>шт</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Папка-файл</td>
-                            <td>Пластиковая, прозрачная, А4</td>
-                            <td>шт</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Скобы для степлера</td>
-                            <td>Стандартные, 26/6, 1000 шт</td>
-                            <td>коробка</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Тонер для принтера</td>
-                            <td>HP 85A, черный</td>
-                            <td>картридж</td>
-                        </tr>
+                    <tbody id="catalogTableBody">
                     </tbody>
                 </table>
             </div>
 
             <div class="pagination">
-                <button disabled>Предыдущая</button>
-                <span>Страница 1 из 1</span>
-                <button disabled>Следующая</button>
+                <button id="catalogPrevPage" onclick="changeCatalogPage(-1)">Предыдущая</button>
+                <span id="catalogPageInfo">Страница 1 из 1</span>
+                <button id="catalogNextPage" onclick="changeCatalogPage(1)">Следующая</button>
             </div>
         </div>
     </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -16,17 +16,18 @@
                 <a href="index.html" class="nav-item">Главная</a>
                 <a href="create-request.html" class="nav-item">Создать заявку</a>
                 <a href="profile.html" class="nav-item">Личный кабинет</a>
-                <a href="admin-panel.html" class="nav-item">Панель управления</a>
+                <a href="admin-panel.html" class="nav-item" id="purchasingPanelBtn" style="display: none;">Панель управления</a>
                 <a href="catalog.html" class="nav-item">Каталог материалов</a>
+                <a href="admin.html" class="nav-item" id="adminPanelBtn" style="display: none;">Админ панель</a>
             </div>
             <div class="nav-profile">
-                <span class="profile-name">Иванов И.И.</span>
-                <a href="login.html" class="logout-btn">Выход</a>
+                <span class="profile-name" id="userName">Пользователь</span>
+                <a href="#" onclick="logout(); return false;" class="logout-btn">Выход</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div id="mainContent" class="container">
         <h1>Система управления заявками</h1>
         
         <div class="quick-actions">
@@ -39,16 +40,16 @@
             <h2>Последние заявки</h2>
             
             <div class="filters">
-                <input type="text" placeholder="Поиск по наименованию материала">
-                <select>
+                <input type="text" id="searchInput" placeholder="Поиск по наименованию материала">
+                <select id="statusFilter">
                     <option value="">Все статусы</option>
                     <option value="pending">В обработке</option>
                     <option value="approved">Согласована</option>
                     <option value="rejected">Отклонена</option>
                     <option value="confirmed">Подтверждена</option>
                 </select>
-                <input type="date">
-                <button class="btn btn-secondary">Применить фильтры</button>
+                <input type="date" id="dateFilter">
+                <button class="btn btn-secondary" onclick="applyFilters()">Применить фильтры</button>
             </div>
 
             <div class="table-container">
@@ -58,39 +59,25 @@
                             <th>Наименование материала</th>
                             <th>Статус</th>
                             <th>Дата подачи</th>
+                            <th id="actionsHeader" style="display: none;">Действия</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Бумага офисная А4</td>
-                            <td><span class="status status-pending">В обработке</span></td>
-                            <td>18.10.2025 14:30</td>
-                        </tr>
-                        <tr>
-                            <td>Ручка шариковая синяя</td>
-                            <td><span class="status status-approved">Согласована</span></td>
-                            <td>17.10.2025 09:15</td>
-                        </tr>
-                        <tr>
-                            <td>Папка-файл</td>
-                            <td><span class="status status-confirmed">Подтверждена</span></td>
-                            <td>16.10.2025 16:45</td>
-                        </tr>
-                        <tr>
-                            <td>Скобы для степлера</td>
-                            <td><span class="status status-rejected">Отклонена</span></td>
-                            <td>15.10.2025 11:20</td>
-                        </tr>
+                    <tbody id="requestsTableBody">
                     </tbody>
                 </table>
             </div>
 
             <div class="pagination">
-                <button disabled>Предыдущая</button>
-                <span>Страница 1 из 1</span>
-                <button disabled>Следующая</button>
+                <button id="prevPage" onclick="changePage(-1)">Предыдущая</button>
+                <span id="pageInfo">Страница 1 из 1</span>
+                <button id="nextPage" onclick="changePage(1)">Следующая</button>
             </div>
         </div>
     </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/requests.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
